@@ -1,1057 +1,274 @@
-# Projet : **Chroniques de Brumeterre**
-
-## 1. Vision du jeu
-
-**Chroniques de Brumeterre** est un jeu de simulation de vie solo où le joueur crée un foyer, choisit un monde où s'installer, construit son habitat et suit la vie quotidienne de personnages avec des besoins, relations, ambitions, études, métiers et pouvoirs spéciaux selon la région explorée.
-
-L'objectif est de proposer une expérience riche et flexible autour de quatre piliers :
-
-1. **Créer un foyer mémorable** ;
-2. **Raconter des histoires de vie** ;
-3. **Construire et aménager librement** ;
-4. **Explorer des mondes à identité forte**.
-
-Le projet ci-dessous couvre ensemble les options **A, B, C et D** demandées :
-
-- **A** : document de design complet ;
-- **B** : système de création de personnage ;
-- **C** : mode construction ;
-- **D** : proposition de prototype technique.
-
----
-
-## 2. Boucle de jeu principale
-
-### Phase 1 — Menu principal
-Le joueur arrive sur un menu clair avec :
-
-- **Nouvelle partie** ;
-- **Charger une partie** ;
-- **Bibliothèque locale** (foyers et terrains sauvegardés localement) ;
-- **Options** ;
-- **Crédits**.
-
-### Phase 2 — Création du foyer
-Le joueur compose un foyer contenant :
-
-- jusqu'à **8 personnages humains** ;
-- jusqu'à **3 animaux de compagnie ou ferme légère** ;
-- une combinaison libre d'âges, liens familiaux et statuts sociaux.
-
-### Phase 3 — Installation dans un monde
-Le joueur choisit l'un des **3 mondes de base** :
-
-1. **Haute-Tour** : ville dense, appartements, lycée et université ;
-2. **Valbrume** : campagne, fermes, vergers, rivière et vie rurale ;
-3. **Aureclair** : monde magique, école d'arcane, clairières enchantées et rituels.
-
-### Phase 4 — Vie quotidienne
-Le joueur gère :
-
-- besoins ;
-- relations ;
-- études ;
-- carrière ;
-- progression des compétences ;
-- événements du foyer ;
-- finances ;
-- construction et décoration ;
-- pouvoirs magiques dans le monde adéquat.
-
-### Phase 5 — Progression longue
-Le jeu encourage la progression via :
-
-- aspirations ;
-- étapes de vie ;
-- arbres de compétences ;
-- diplômes ;
-- succès de foyer ;
-- héritage intergénérationnel ;
-- déblocage d'objets, recettes et interactions sociales.
-
----
-
-## 3. Système d'âges
-
-Chaque personnage appartient à une tranche d'âge jouable :
-
-- **Bébé** ;
-- **Petit enfant** ;
-- **Enfant** ;
-- **Adolescent** ;
-- **Jeune adulte** ;
-- **Adulte** ;
-- **Senior**.
-
-### Spécificités par âge
-
-- **Bébé** : besoins simples, interactions de soins, objets dédiés.
-- **Petit enfant** : motricité, imagination, langage, dépendance forte aux adultes.
-- **Enfant** : école, premiers loisirs, amitiés, passions naissantes.
-- **Adolescent** : lycée, clubs, romances légères, identité, stress scolaire.
-- **Jeune adulte** : études supérieures, premiers métiers, indépendance.
-- **Adulte** : carrière, famille, projets de long terme.
-- **Senior** : transmission, loisirs calmes, mentorat, héritage.
-
----
-
-## 4. Système de besoins
-
-Chaque personnage possède des jauges de besoins qui influencent son humeur et ses actions :
-
-- **Faim** ;
-- **Énergie** ;
-- **Hygiène** ;
-- **Sociabilité** ;
-- **Divertissement** ;
-- **Confort** ;
-- **Environnement**.
-
-### Besoins spéciaux
-
-Selon le profil du personnage, on peut ajouter :
-
-- **Concentration scolaire** pour les adolescents et étudiants ;
-- **Inspiration créative** pour certains artistes ;
-- **Résonance arcanique** pour les mages ;
-- **Lien animal** pour les personnages très proches des bêtes.
-
----
-
-## 5. Humeurs et états émotionnels
-
-Le jeu repose sur un système émotionnel lisible, utile au gameplay et aux interactions :
-
-- **Heureux** ;
-- **Tendu** ;
-- **Triste** ;
-- **Inspiré** ;
-- **Confiant** ;
-- **Gêné** ;
-- **En colère** ;
-- **Fatigué** ;
-- **Émerveillé** ;
-- **Mystiquement chargé**.
-
-Les émotions proviennent de :
-
-- besoins ;
-- événements récents ;
-- qualité du logement ;
-- relations ;
-- réussite ou échec ;
-- météo ;
-- objets spéciaux ;
-- magie.
-
----
-
-## 6. Option B — Création de personnage complète
-
-## 6.1. Structure du mode création
-
-Le mode création de personnage est conçu en plusieurs onglets :
-
-1. **Identité** ;
-2. **Corps** ;
-3. **Visage** ;
-4. **Cheveux et détails** ;
-5. **Tenues** ;
-6. **Personnalité** ;
-7. **Aspiration** ;
-8. **Voix et démarche** ;
-9. **Relations du foyer** ;
-10. **Animaux**.
-
-### Fonctions UX recommandées
-
-- bouton **aléatoire** par section ;
-- bouton **aléatoire total** ;
-- verrouillage de certains éléments pendant une randomisation ;
-- rotation 3D du modèle ;
-- zoom visage/corps ;
-- catégories latérales claires ;
-- aperçu des tenues par contexte.
-
-## 6.2. Identité de base
-
-Le joueur définit :
-
-- prénom ;
-- nom ;
-- pronoms ;
-- âge ;
-- voix ;
-- style de marche ;
-- préférence esthétique générale ;
-- éventuelle origine magique.
-
-## 6.3. Corps
-
-Réglages proposés :
-
-- taille visuelle parmi plusieurs gabarits lisibles ;
-- masse corporelle ;
-- musculature ;
-- posture ;
-- largeur d'épaules ;
-- longueur des jambes ;
-- forme des mains ;
-- détails de peau ;
-- cicatrices ;
-- grains de beauté ;
-- taches de rousseur.
-
-## 6.4. Visage
-
-Le visage doit être modifiable zone par zone :
-
-- forme générale du crâne ;
-- front ;
-- sourcils ;
-- yeux ;
-- paupières ;
-- nez ;
-- pommettes ;
-- joues ;
-- lèvres ;
-- mâchoire ;
-- menton ;
-- oreilles.
-
-### Détails avancés du visage
-
-- distance entre les yeux ;
-- inclinaison des yeux ;
-- hauteur des pommettes ;
-- largeur du nez ;
-- projection du menton ;
-- épaisseur des lèvres ;
-- asymétries légères optionnelles.
-
-## 6.5. Cheveux et détails
-
-- coiffures courtes, longues, attachées, bouclées, tressées ;
-- couleurs naturelles et teintures ;
-- pilosité faciale ;
-- maquillage léger à prononcé ;
-- vernis ;
-- bijoux ;
-- lunettes ;
-- accessoires de tête.
-
-## 6.6. Tenues
-
-Le personnage possède plusieurs catégories de tenues :
-
-- **Quotidien** ;
-- **Formel** ;
-- **Nuit** ;
-- **Sport** ;
-- **Travail/études** ;
-- **Extérieur** ;
-- **Fête** ;
-- **Occulte/Magie**.
-
-Chaque catégorie peut contenir plusieurs variantes enregistrées.
-
-## 6.7. Caractères / traits
-
-Chaque personnage sélectionne **3 traits principaux** et éventuellement **1 trait d'origine** selon le monde ou l'histoire.
-
-### Liste de traits de base
-
-- Ambitieux ;
-- Créatif ;
-- Maladroit ;
-- Généreux ;
-- Solitaire ;
-- Sociable ;
-- Jaloux ;
-- Calme ;
-- Impulsif ;
-- Perfectionniste ;
-- Gourmand ;
-- Aventurier ;
-- Romantique ;
-- Pragmatique ;
-- Ordonné ;
-- Désordonné ;
-- Protecteur ;
-- Paresseux ;
-- Travailleur ;
-- Curieux ;
-- Mystique ;
-- Campagnard ;
-- Citadin ;
-- Ami des animaux ;
-- Geek ;
-- Artiste ;
-- Nerveux ;
-- Optimiste ;
-- Méfiant ;
-- Charismatique.
-
-### Traits d'origine spéciaux
-
-- Héritier urbain ;
-- Enfant des champs ;
-- Sensible à l'arcane ;
-- Élève modèle ;
-- Rebelle discret ;
-- Sang ancien.
-
-## 6.8. Aspirations
-
-Les aspirations sont de grands parcours de progression. Chacune comporte **4 étapes**, des objectifs variés et une récompense de fin.
-
-### Famille et relations
-
-- **Parent accompli** ;
-- **Dynastie du foyer** ;
-- **Âme sœur** ;
-- **Cercle social parfait**.
-
-### Études et réussite
-
-- **Premier de promotion** ;
-- **Chercheur prometteur** ;
-- **Carrière exemplaire** ;
-- **Prodige polyvalent**.
-
-### Création et culture
-
-- **Artiste reconnu** ;
-- **Maître de la scène** ;
-- **Auteur prolifique** ;
-- **Chef inventif**.
-
-### Nature et campagne
-
-- **Gardien du verger** ;
-- **Vie simple et heureuse** ;
-- **Éleveur attentif** ;
-- **Pêcheur des brumes**.
-
-### Magie et mystère
-
-- **Apprenti de l'aube** ;
-- **Archiviste des sorts** ;
-- **Mage des éléments** ;
-- **Sage du voile**.
-
-### Richesse et propriété
-
-- **Bâtisseur prospère** ;
-- **Collectionneur raffiné** ;
-- **Magnat immobilier** ;
-- **Vie de luxe**.
-
-## 6.9. Foyer
-
-Le foyer permet de définir :
-
-- liens de parenté ;
-- amis proches ;
-- colocataires ;
-- partenaires ;
-- rivaux ;
-- tuteurs ;
-- animaux liés à un ou plusieurs membres.
-
-### Limites proposées
-
-- **8 personnages humains maximum** ;
-- **3 animaux maximum** ;
-- gestion des lits, chambres et budget de départ selon la taille du foyer.
-
-## 6.10. Animaux
-
-Le foyer peut accueillir :
-
-- **chat** ;
-- **chien** ;
-- **vache miniature ou ferme** ;
-- **chèvre** ;
-- **lama décoratif ou de ferme** ;
-- **poule** ;
-- **corbeau apprivoisé** dans le monde magique.
-
-### Paramètres animaux
-
-- apparence ;
-- nom ;
-- tempérament ;
-- niveau d'attachement ;
-- besoins ;
-- rôle utilitaire éventuel.
-
----
-
-## 7. Monde 1 — Haute-Tour
-
-## 7.1. Concept
-
-Haute-Tour est une métropole verticale faite pour les foyers urbains, les étudiants et les carrières modernes.
-
-## 7.2. Règles de construction
-
-- quartiers orientés **appartements et immeubles** ;
-- sur les terrains constructibles de ce monde, la construction est limitée aux **bâtiments collectifs** ;
-- pas de maison individuelle dans les zones urbaines centrales ;
-- certains lots sont déjà occupés par des immeubles préfabriqués ;
-- d'autres lots sont vides mais réservés à la construction verticale.
-
-## 7.3. Lieux clés
-
-- campus universitaire ;
-- lycée central ;
-- bibliothèque ;
-- station de tram ;
-- café étudiant ;
-- galerie d'art ;
-- toit-terrasse communautaire ;
-- parc de poche.
-
-## 7.4. Gameplay spécifique
-
-- vie en appartement ;
-- voisinage dense ;
-- plaintes sonores ;
-- clubs d'étudiants ;
-- examens ;
-- stages ;
-- ascenseurs ;
-- espaces communs ;
-- colocation.
-
----
-
-## 8. Monde 2 — Valbrume
-
-## 8.1. Concept
-
-Valbrume est une campagne vivante autour des fermes, potagers, vergers, marchés locaux et grandes maisons familiales.
-
-## 8.2. Lieux clés
-
-- place du marché ;
-- ferme communautaire ;
-- moulin ;
-- rivière ;
-- forêt ;
-- colline d'observation ;
-- serre municipale ;
-- école rurale.
-
-## 8.3. Gameplay spécifique
-
-- agriculture légère ;
-- entretien d'animaux ;
-- confitures, cuisine, récoltes ;
-- pêche et cueillette ;
-- festivals saisonniers ;
-- voisinage intergénérationnel ;
-- projets de rénovation de ferme.
-
----
-
-## 9. Monde 3 — Aureclair
-
-## 9.1. Concept
-
-Aureclair est un monde magique caché derrière des portails, composé de jardins luminescents, tours d'étude, ruines anciennes et places rituelles.
-
-## 9.2. Lieux clés
-
-- académie d'arcane ;
-- bibliothèque runique ;
-- serre alchimique ;
-- place des duels ;
-- étang astral ;
-- quartier des artisans mystiques ;
-- observatoire ;
-- bois chuchotant.
-
-## 9.3. Gameplay spécifique
-
-- apprentissage de sorts ;
-- alchimie ;
-- collecte de composants ;
-- progression magique ;
-- duels ;
-- malédictions temporaires ;
-- familiers ;
-- rituels de soutien.
-
-### Exemple d'écoles de magie
-
-- **Éléments** ;
-- **Illusions** ;
-- **Protection** ;
-- **Transmutation** ;
-- **Soin**.
-
-### Exemples de sorts
-
-- étincelle de nettoyage ;
-- réparation légère ;
-- floraison accélérée ;
-- sphère lumineuse ;
-- pas spectral ;
-- infusion de calme ;
-- barrière protectrice.
-
----
-
-## 10. Études, lycée et université
-
-## 10.1. Lycée
-
-Les adolescents peuvent :
-
-- suivre des cours ;
-- rejoindre des clubs ;
-- passer des examens ;
-- développer des rivalités ou amitiés ;
-- participer à des événements ;
-- choisir une orientation future.
-
-### Clubs possibles
-
-- débat ;
-- théâtre ;
-- sciences ;
-- sport ;
-- arts visuels ;
-- musique.
-
-## 10.2. Université
-
-Les jeunes adultes peuvent intégrer le campus de Haute-Tour.
-
-### Filières possibles
-
-- arts ;
-- sciences sociales ;
-- ingénierie ;
-- commerce ;
-- littérature ;
-- biologie ;
-- études ésotériques.
-
-### Systèmes associés
-
-- bourses ;
-- logement étudiant ;
-- dette d'étude optionnelle ;
-- emploi du temps ;
-- projets ;
-- examens finaux.
-
----
-
-## 11. Compétences
-
-Le jeu peut proposer les compétences suivantes :
-
-- cuisine ;
-- pâtisserie ;
-- jardinage ;
-- bricolage ;
-- charisme ;
-- peinture ;
-- écriture ;
-- musique ;
-- logique ;
-- programmation ;
-- photographie ;
-- fitness ;
-- pêche ;
-- soin animal ;
-- recherche universitaire ;
-- alchimie ;
-- magie élémentaire ;
-- magie de protection.
-
-Chaque compétence débloque :
-
-- nouvelles interactions ;
-- meilleure qualité de fabrication ;
-- jobs ou promotions ;
-- options sociales ;
-- avantages de construction ou d'entretien.
-
----
-
-## 12. Carrières
-
-### Carrières classiques
-
-- enseignant ;
-- chef ;
-- artiste ;
-- auteur ;
-- développeur ;
-- chercheur ;
-- commerçant ;
-- architecte d'intérieur ;
-- agriculteur ;
-- vétérinaire rural.
-
-### Carrières spéciales
-
-- conservateur d'artefacts ;
-- alchimiste ;
-- bibliothécaire runique ;
-- médiateur magique.
-
-Chaque carrière peut être :
-
-- totalement passive ;
-- semi-active avec choix d'actions ;
-- active sur lieu dédié pour certains métiers.
-
----
-
-## 13. Option C — Mode construction
-
-## 13.1. Principes UX
-
-Le mode construction doit être rapide, lisible et satisfaisant.
-
-### Fonctions de base
-
-- pause automatique du jeu à l'ouverture ;
-- grille d'accrochage ;
-- rotation d'objets ;
-- déplacement libre ;
-- duplication ;
-- pipette ;
-- marteau de suppression ;
-- remplacement d'objet ;
-- annuler / rétablir ;
-- filtres par style, prix et fonction.
-
-## 13.2. Outils architecturaux
-
-- murs ;
-- cloisons ;
-- pièces automatiques ;
-- portes ;
-- fenêtres ;
-- escaliers ;
-- ascenseurs pour lots compatibles ;
-- plateformes ;
-- toits ;
-- balcons ;
-- terrasses.
-
-## 13.3. Catégories d'objets
-
-### Vie quotidienne
-
-- lits ;
-- canapés ;
-- chaises ;
-- tables ;
-- bureaux ;
-- bibliothèques ;
-- luminaires ;
-- tapis ;
-- rangements.
-
-### Cuisine
-
-- frigos ;
-- plaques ;
-- fours ;
-- éviers ;
-- comptoirs ;
-- armoires ;
-- tables de cuisine.
-
-### Salle de bain
-
-- douches ;
-- baignoires ;
-- toilettes ;
-- lavabos ;
-- miroirs ;
-- rangements.
-
-### Enfants
-
-- berceaux ;
-- petits lits ;
-- jouets ;
-- bureaux d'école ;
-- décor thématique.
-
-### Études et travail
-
-- ordinateurs ;
-- tableaux ;
-- établis ;
-- chevalets ;
-- instruments.
-
-### Ferme et extérieur
-
-- bacs à culture ;
-- clôtures ;
-- portails ;
-- poulaillers ;
-- granges ;
-- mangeoires ;
-- bancs ;
-- lampadaires ;
-- arbres fruitiers.
-
-### Magie
-
-- autels ;
-- bibliothèques arcanes ;
-- chaudrons ;
-- cercles runiques ;
-- cristaux ;
-- miroirs mystiques.
-
-## 13.4. Contraintes par monde
-
-### Haute-Tour
-
-- immeubles et appartements uniquement sur les lots réservés ;
-- densité élevée ;
-- ascenseurs ou cages d'escalier nécessaires ;
-- espaces communs optionnels.
-
-### Valbrume
-
-- lots larges ;
-- dépendances ;
-- terrains agricoles ;
-- bâtiments bas privilégiés.
-
-### Aureclair
-
-- architecture organique ou mystique ;
-- objets magiques interactifs ;
-- zones de rituel ;
-- portails décoratifs ou fonctionnels.
-
-## 13.5. Qualité environnementale
-
-Chaque objet peut contribuer à des scores invisibles ou partiellement visibles :
-
-- confort ;
-- prestige ;
-- inspiration ;
-- fonctionnalité ;
-- aura magique.
-
-Ces scores influencent les émotions et certaines interactions.
-
----
-
-## 14. Système économique
-
-Le foyer dispose de :
-
-- fonds de départ ;
-- dépenses courantes ;
-- factures ;
-- loyers ou charges ;
-- revenus professionnels ;
-- revenus d'artisanat ;
-- ventes de récoltes ;
-- ventes d'œuvres ;
-- bourses d'études.
-
-### Dépenses importantes
-
-- achat de terrain ;
-- mobilier ;
-- entretien ;
-- frais universitaires ;
-- soins animaux ;
-- ingrédients rares pour magie.
-
----
-
-## 15. Interactions sociales
-
-Catégories d'interactions :
-
-- amical ;
-- drôle ;
-- romantique ;
-- familial ;
-- conflictuel ;
-- mentorat ;
-- académique ;
-- magique.
-
-### Exemples
-
-- complimenter la tenue ;
-- partager une anecdote ;
-- proposer une étude commune ;
-- s'excuser ;
-- demander un conseil ;
-- offrir un repas ;
-- lancer un défi de duel amical ;
-- raconter une rumeur locale.
-
----
-
-## 16. Événements et saisons
-
-Événements possibles :
-
-- fête d'anniversaire ;
-- repas de famille ;
-- festival de la récolte ;
-- soirée étudiante ;
-- marché d'artisans ;
-- concours floral ;
-- nuit des lanternes ;
-- cérémonie des novices d'Aureclair.
-
-Un futur système de saisons peut modifier :
-
-- météo ;
-- cultures ;
-- vêtements ;
-- calendrier d'événements ;
-- humeur générale.
-
----
-
-## 17. Option D — Proposition technique de prototype
-
-## 17.1. Moteur conseillé
-
-Deux pistes solides :
-
-- **Unity** pour un pipeline 3D accessible et un outillage UI rapide ;
-- **Godot** pour un prototype plus léger et très modulaire.
-
-Pour un premier prototype, **Unity** est le choix le plus simple si l'objectif est d'avoir rapidement :
-
-- personnages 3D ;
-- interface éditable ;
-- scènes multiples ;
-- outils de placement d'objets ;
-- sérialisation de données.
-
-## 17.2. Architecture minimale
-
-### Scènes principales
-
-- `MainMenu` ;
-- `HouseholdCreator` ;
-- `WorldSelect` ;
-- `LiveMode` ;
-- `BuildMode` ;
-- `LotLoader`.
-
-### Données principales
-
-- `CharacterData` ;
-- `HouseholdData` ;
-- `AnimalData` ;
-- `LotData` ;
-- `WorldData` ;
-- `AspirationData` ;
-- `TraitData` ;
-- `SkillData` ;
-- `CareerData` ;
-- `SpellData`.
-
-## 17.3. Exemple de structures de données
-
-```txt
-CharacterData
-- id
-- firstName
-- lastName
-- ageStage
-- pronouns
-- bodyPreset
-- faceMorphValues
-- outfitSets
-- traits[]
-- aspirationId
-- skills{}
-- needs{}
-- relationships{}
-- voiceProfile
-- walkStyle
-- occultType
-```
-
-```txt
-HouseholdData
-- id
-- funds
-- members[]
-- animals[]
-- homeLotId
-- inventory[]
-- storyFlags[]
-```
-
-```txt
-LotData
-- id
-- worldId
-- lotType
-- size
-- buildRules
-- placedObjects[]
-- walls
-- floors
-- ownershipType
-```
-
-## 17.4. Systèmes à prototyper dans l'ordre
-
-### Prototype vertical 1
-
-- menu principal ;
-- création d'un personnage simple ;
-- foyer d'un personnage ;
-- sélection d'un monde ;
-- chargement d'un terrain vide ;
-- placement d'objets de base ;
-- besoins simples.
-
-### Prototype vertical 2
-
-- foyer multi-personnages ;
-- relations ;
-- aspirations ;
-- emplois du temps ;
-- école/études simplifiées.
-
-### Prototype vertical 3
-
-- appartements de Haute-Tour ;
-- ferme de Valbrume ;
-- magie d'Aureclair ;
-- animaux ;
-- sauvegarde complète.
-
-## 17.5. Système de simulation
-
-Une architecture possible repose sur :
-
-- un **GameClock** pour le temps ;
-- un **NeedSystem** pour les besoins ;
-- un **InteractionSystem** pour les actions contextuelles ;
-- un **RelationshipSystem** ;
-- un **BuildSystem** ;
-- un **WorldRuleSystem** selon le monde ;
-- un **MagicSystem** activé à Aureclair ou par personnages spéciaux.
-
-## 17.6. IA légère des personnages
-
-Les personnages non contrôlés peuvent utiliser :
-
-- une liste de priorités ;
-- une pondération par besoin ;
-- des modificateurs émotionnels ;
-- des routines liées au rôle ;
-- des destinations favorites.
-
-### Exemple de logique
-
-1. vérifier besoins critiques ;
-2. vérifier obligations horaires ;
-3. vérifier interactions sociales opportunes ;
-4. choisir activité agréable ou productive ;
-5. réévaluer après interruption.
-
-## 17.7. Pipeline art recommandé
-
-Comme tu veux éviter des visuels “horribles”, la direction artistique devrait viser :
-
-- silhouettes propres ;
-- proportions stylisées mais crédibles ;
-- textures simples ;
-- couleurs harmonieuses ;
-- éclairage doux ;
-- UI moderne et lisible ;
-- animations expressives mais sobres.
-
-### Recommandations concrètes
-
-- commencer avec un style **semi-stylisé** ;
-- limiter le nombre de matériaux par objet ;
-- utiliser des palettes par monde ;
-- employer des icônes cohérentes ;
-- prévoir des variantes de vêtements compatibles avec les morphologies.
-
----
-
-## 18. Roadmap de production
-
-## Phase 1 — Fondations
-
-- système de données ;
-- menu principal ;
-- création d'un personnage de base ;
-- terrain vide ;
-- quelques objets ;
-- besoins ;
-- sauvegarde locale.
-
-## Phase 2 — Vie quotidienne
-
-- interactions sociales ;
-- compétences ;
-- carrière simple ;
-- aspirations ;
-- foyer multi-personnages.
-
-## Phase 3 — Mondes
-
-- Haute-Tour ;
-- Valbrume ;
-- Aureclair ;
-- règles spécifiques de construction.
-
-## Phase 4 — Profondeur
-
-- lycée ;
-- université ;
-- animaux ;
-- magie avancée ;
-- événements ;
-- équilibrage économie/IA.
-
----
-
-## 19. Ce qui rend le projet original
-
-Pour garder une identité propre, le projet s'éloigne volontairement d'une copie directe grâce à :
-
-- ses **trois mondes originaux** ;
-- son **univers magique centré sur Aureclair** ;
-- ses **règles de construction propres par monde** ;
-- sa **liste d'aspirations et de traits personnalisée** ;
-- sa **structure de progression axée sur héritage, études et arcane** ;
-- son **nom, son univers et sa direction artistique distincts**.
-
----
-
-## 20. Prochaine étape idéale
-
-Si on continue ensuite, la meilleure suite serait de produire dans l'ordre :
-
-1. un **wireframe d'interface** du menu et de la création de personnage ;
-2. une **liste exhaustive d'objets de base** ;
-3. un **tableau complet des aspirations et traits avec effets chiffrés** ;
-4. un **schéma technique Unity/Godot** avec scripts et responsabilités ;
-5. un **prototype jouable minimal** centré sur un foyer, un terrain et un monde.
+:root {
+  --bg-top: #98d8ff;
+  --bg-bottom: #6be0c1;
+  --ink: #1d4069;
+  --ink-soft: #4d6c8f;
+  --white: rgba(255, 255, 255, 0.9);
+  --white-strong: rgba(255, 255, 255, 0.97);
+  --line: rgba(81, 132, 181, 0.28);
+  --shadow: 0 18px 40px rgba(49, 88, 138, 0.18);
+  --accent: #57c84d;
+  --accent-2: #4ba8ff;
+  --accent-3: #ffd55a;
+  --danger: #ff6b8c;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255,255,255,0.85), rgba(255,255,255,0) 20%),
+    radial-gradient(circle at 80% 22%, rgba(255,255,255,0.45), rgba(255,255,255,0) 18%),
+    linear-gradient(135deg, #74b4ff 0%, #8ed2ff 36%, #79dbc5 68%, #3cc68a 100%);
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+main { padding: 0 18px 24px; }
+.app-shell { max-width: 1480px; margin: 0 auto; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 18px 10px;
+}
+.brand-lockup { display: flex; align-items: center; gap: 14px; }
+.plumbob {
+  width: 28px; height: 44px; background: linear-gradient(180deg, #dcff97, #57c84d);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  border: 3px solid rgba(36, 102, 32, 0.2);
+  box-shadow: var(--shadow);
+}
+.eyebrow { margin: 0; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.73rem; color: var(--ink-soft); }
+.topbar h1 { margin: 2px 0 0; font-size: 2.2rem; }
+.topbar-actions, .button-row, .menu-actions, .form-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.status-pill, .tiny-pill {
+  padding: 10px 14px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--ink-soft); box-shadow: var(--shadow);
+}
+.top-icon-btn {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow);
+}
+.screen { display: none; }
+.screen.active { display: block; }
+.panel, .glass-panel, .panel-soft {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.panel {
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+}
+.glass-panel {
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+}
+.panel-soft {
+  background: rgba(255,255,255,0.38);
+  backdrop-filter: blur(8px);
+  border-radius: 34px;
+}
+.primary-btn, .secondary-btn, .ghost-btn {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 13px 18px;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.primary-btn { background: linear-gradient(180deg, #7add65, #54c24c); color: white; }
+.secondary-btn, .ghost-btn { background: var(--white); color: var(--ink); }
+.xl { min-width: 260px; justify-content: center; font-size: 1.1rem; }
+button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(49, 88, 138, 0.16); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.vertical { flex-direction: column; align-items: flex-start; }
+.centered { justify-content: center; }
+.compact { margin-bottom: 14px; }
+
+.menu-shell {
+  min-height: 78vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  padding: 30px;
+}
+.menu-content h2 { font-size: clamp(2.2rem, 5vw, 4.4rem); margin: 8px 0 14px; }
+.menu-content p { max-width: 55ch; color: var(--ink-soft); line-height: 1.6; }
+.menu-preview-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: center;
+}
+.mini-card {
+  padding: 18px; border-radius: 22px; background: var(--white-strong); border: 1px solid var(--line);
+  display: grid; gap: 10px;
+}
+.mini-card span { font-size: 2rem; }
+.mini-card p { margin: 0; color: var(--ink-soft); }
+
+.section-heading {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.section-heading h2 { margin: 4px 0 0; font-size: clamp(1.6rem, 4vw, 2.8rem); }
+
+.cak-shell {
+  display: grid; grid-template-columns: minmax(290px, 1.05fr) minmax(360px, 0.95fr) minmax(320px, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+.cak-left, .cak-right { display: grid; gap: 14px; align-content: start; }
+.identity-card, .hex-flow, .selection-panel, .wardrobe-panel { padding: 16px; }
+.identity-top-row, .panel-title-row, .wardrobe-header, .worlds-toolbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.identity-card h3, .hex-flow h3, .selection-panel h3, .wardrobe-panel h3, .world-detail h3, .job-panel h4, .panel h3 { margin: 0; }
+.grid { display: grid; gap: 12px; }
+.grid.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.compact-grid { margin-top: 12px; }
+label { display: grid; gap: 6px; font-size: 0.95rem; color: var(--ink-soft); }
+input[type="text"], select {
+  border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,0.92);
+  padding: 11px 12px; color: var(--ink);
+}
+input[type="range"] { width: 100%; accent-color: #4aa2ff; }
+.muted { margin: 0; color: var(--ink-soft); }
+
+.hex-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.hex-placeholder {
+  width: 54px; height: 60px; clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+  display: grid; place-items: center; background: rgba(126, 176, 224, 0.25); border: 2px solid rgba(255,255,255,0.78); font-weight: bold;
+}
+.hex-placeholder.active { border-color: var(--accent-3); }
+.hex-placeholder.filled { background: linear-gradient(180deg, #7fc6ff, #77aef2); color: white; }
+.hex-placeholder.aspiration.filled { background: linear-gradient(180deg, #ffd96f, #ffb84c); }
+
+.choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 12px; }
+.choice-card {
+  background: rgba(255,255,255,0.74); border: 2px solid transparent; border-radius: 18px; padding: 12px;
+  display: grid; gap: 6px; text-align: left; color: var(--ink);
+}
+.choice-card.active { border-color: #7bcf63; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8); }
+.choice-card .icon { font-size: 1.5rem; }
+.choice-card .tag { font-size: 0.72rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+.choice-card p { margin: 0; color: var(--ink-soft); font-size: 0.88rem; }
+
+.sim-stage {
+  position: relative; min-height: 760px; overflow: hidden; display: grid; align-items: center; justify-items: center; padding: 24px;
+}
+.stage-gradient {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(97,159,255,0.8), rgba(97,159,255,0) 34%),
+              radial-gradient(circle at 75% 40%, rgba(71,218,149,0.75), rgba(71,218,149,0) 30%),
+              linear-gradient(135deg, #5da8ff 10%, #8fdcff 52%, #42c68f 92%);
+}
+.avatar-stage.advanced {
+  position: relative; z-index: 2; min-height: 590px; display: flex; align-items: end; justify-content: center; gap: 24px;
+}
+.rotate-btn, .footer-tool, .category-pill {
+  border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink); box-shadow: var(--shadow);
+}
+.rotate-btn { width: 56px; height: 56px; font-size: 1.5rem; }
+.avatar-card.improved {
+  position: relative; width: 255px; height: 560px; filter: drop-shadow(0 20px 20px rgba(48, 89, 139, 0.18));
+}
+.hair-layer {
+  position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 150px; height: 105px;
+  border-radius: 48% 52% 38% 42%; background: linear-gradient(180deg, #5b3d2d, #392317); z-index: 2;
+}
+.avatar-head {
+  position: absolute; top: 78px; left: 50%; transform: translateX(-50%); width: 138px; height: 162px;
+  border-radius: 46% 46% 43% 43%; background: #e6b691; z-index: 3;
+}
+.eye { position: absolute; top: 62px; width: 20px; height: 10px; border-radius: 999px; background: #473443; }
+.eye.left { left: 32px; }
+.eye.right { right: 32px; }
+.nose { position: absolute; left: 50%; top: 66px; transform: translateX(-50%); width: 10px; height: 32px; border-radius: 999px; background: rgba(182, 123, 98, 0.4); }
+.mouth { position: absolute; left: 50%; bottom: 32px; transform: translateX(-50%); width: 38px; height: 16px; border-bottom: 3px solid #a75970; border-radius: 0 0 30px 30px; }
+.avatar-torso {
+  position: absolute; left: 50%; top: 210px; transform: translateX(-50%); width: 185px; height: 190px;
+  border-radius: 30px 30px 24px 24px; background: linear-gradient(180deg, #303944, #545e71);
+}
+.avatar-torso::before, .avatar-torso::after {
+  content: ""; position: absolute; top: 15px; width: 38px; height: 170px; border-radius: 20px; background: #d6a17b;
+}
+.avatar-torso::before { left: -25px; transform: rotate(7deg); }
+.avatar-torso::after { right: -25px; transform: rotate(-7deg); }
+.avatar-legs {
+  position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); width: 150px; height: 170px;
+  border-radius: 22px 22px 18px 18px; background: linear-gradient(180deg, #bfd7f8, #8fb3da);
+}
+.avatar-legs::before, .avatar-legs::after {
+  content: ""; position: absolute; bottom: -18px; width: 54px; height: 30px; border-radius: 18px; background: #273449;
+}
+.avatar-legs::before { left: 12px; }
+.avatar-legs::after { right: 12px; }
+.body-sliders, .sim-footer-bar {
+  position: absolute; z-index: 2; display: flex; gap: 14px; align-items: center;
+}
+.body-sliders { left: 18px; top: 28px; width: 148px; flex-direction: column; padding: 14px; }
+.sim-footer-bar { bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 14px; }
+.footer-tool { width: 48px; height: 48px; }
+.footer-tool.active { background: linear-gradient(180deg, #7ad66c, #57c84d); color: white; }
+.slim-panel { padding: 12px 14px; }
+
+.category-pills, .build-chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.category-pill { padding: 10px 14px; }
+.category-pill.active { background: linear-gradient(180deg, #87d8ff, #6ab7ff); color: white; }
+.wardrobe-gallery {
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin: 14px 0;
+}
+.outfit-card {
+  aspect-ratio: 0.85; border-radius: 18px; border: 2px solid transparent; background: rgba(255,255,255,0.78);
+  display: grid; place-items: center; text-align: center; padding: 10px; color: var(--ink);
+}
+.outfit-card.active { border-color: var(--accent); }
+.outfit-card span { font-size: 2rem; }
+.outfit-card strong { display: block; }
+.animal-panel { margin-top: 10px; display: grid; gap: 10px; }
+.animal-preview { background: rgba(255,255,255,0.72); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+.sticky-actions { margin-top: 16px; justify-content: flex-end; }
+.hidden { display: none !important; }
+
+.world-selector { padding: 20px; }
+.worlds-toolbar { margin-bottom: 18px; }
+.world-orbit {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; margin-bottom: 18px;
+}
+.world-bubble {
+  background: transparent; border: none; display: grid; gap: 10px; justify-items: center; text-align: center;
+}
+.world-bubble .circle {
+  width: 144px; height: 144px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.9); box-shadow: var(--shadow);
+  display: grid; place-items: center; font-size: 3rem; color: white;
+  background: linear-gradient(180deg, rgba(76, 163, 255, 0.95), rgba(64, 142, 221, 0.92));
+}
+.world-bubble.selected .circle { outline: 5px solid rgba(255, 213, 90, 0.75); transform: scale(1.04); }
+.world-bubble h3 { margin: 0; }
+.world-bubble p { margin: 0; color: var(--ink-soft); max-width: 18ch; }
+.world-detail { padding: 18px; margin-bottom: 18px; }
+
+.simulation-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; }
+.live-panel, .build-panel { padding: 20px; }
+.live-summary, .job-panel, .lot-rules {
+  background: rgba(255,255,255,0.68); border: 1px solid var(--line); border-radius: 22px; padding: 14px;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0; }
+.stat-card { background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+.meter { height: 10px; border-radius: 999px; background: rgba(84, 140, 192, 0.18); overflow: hidden; margin-top: 8px; }
+.meter span { display: block; height: 100%; background: linear-gradient(90deg, #53a7ff, #62d77a); }
+.build-categories { display: grid; gap: 12px; }
+.build-chip {
+  padding: 10px 12px; border-radius: 999px; background: rgba(255,255,255,0.74); border: 1px solid var(--line); color: var(--ink-soft);
+}
+
+@media (max-width: 1180px) {
+  .cak-shell, .simulation-layout, .menu-shell { grid-template-columns: 1fr; }
+  .sim-stage { min-height: 620px; }
+}
+
+@media (max-width: 760px) {
+  .grid.two, .grid.three, .stats-grid, .wardrobe-gallery { grid-template-columns: 1fr; }
+  .topbar, main { padding-left: 12px; padding-right: 12px; }
+  .topbar { align-items: flex-start; gap: 12px; flex-direction: column; }
+  .world-bubble .circle { width: 120px; height: 120px; }
+  .avatar-card.improved { transform: scale(0.9); }
+}
