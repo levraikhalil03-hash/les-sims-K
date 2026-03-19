@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kims — Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Simulation de vie originale</p>
+          <h1>Kims</h1>
+        </div>
+        <div class="status-pill" id="saveStatus">Aucune sauvegarde</div>
+      </header>
+
+      <main>
+        <section class="screen active" id="screen-main-menu">
+          <div class="hero-card">
+            <div class="hero-copy">
+              <p class="eyebrow">Bienvenue</p>
+              <h2>Entre dans le monde des Kims</h2>
+              <p>
+                Lance une nouvelle partie, crée ton Kims dans le mode
+                <strong>CAK</strong> et choisis le monde qui accueillera ton foyer.
+              </p>
+              <div class="menu-actions">
+                <button class="primary-btn" id="newGameBtn">Nouvelle partie</button>
+                <button class="secondary-btn" id="loadGameBtn" disabled>
+                  Charger une partie
+                </button>
+              </div>
+            </div>
+            <aside class="hero-panel">
+              <h3>Contenu du prototype</h3>
+              <ul>
+                <li>Menu principal</li>
+                <li>Créer un Kims (CAK)</li>
+                <li>Animaux : chat et chien</li>
+                <li>4 mondes jouables</li>
+                <li>Mode vie + mode construction</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-cak">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Étape 1</p>
+              <h2>Créer un Kims (CAK)</h2>
+            </div>
+            <button class="ghost-btn" data-nav="screen-main-menu">Retour au menu</button>
+          </div>
+
+          <div class="cak-layout">
+            <form class="panel" id="cakForm">
+              <div class="panel-title-row">
+                <h3>Identité</h3>
+                <button type="button" class="ghost-btn small" id="randomizeBtn">Aléatoire</button>
+              </div>
+
+              <div class="grid two">
+                <label>
+                  Prénom
+                  <input type="text" name="firstName" value="Lina" />
+                </label>
+                <label>
+                  Nom
+                  <input type="text" name="lastName" value="Darine" />
+                </label>
+              </div>
+
+              <div class="grid three">
+                <label>
+                  Âge
+                  <select name="age">
+                    <option>Enfant</option>
+                    <option>Adolescent</option>
+                    <option selected>Jeune adulte</option>
+                    <option>Adulte</option>
+                    <option>Senior</option>
+                  </select>
+                </label>
+                <label>
+                  Sexe
+                  <select name="gender">
+                    <option>Femme</option>
+                    <option>Homme</option>
+                  </select>
+                </label>
+                <label>
+                  Animal compagnon
+                  <select name="animalType">
+                    <option value="none" selected>Aucun</option>
+                    <option value="chat">Chat</option>
+                    <option value="chien">Chien</option>
+                  </select>
+                </label>
+              </div>
+
+              <h3>Visage et style</h3>
+              <div class="slider-stack">
+                <label>Yeux <input type="range" name="eyes" min="0" max="100" value="62" /></label>
+                <label>Bouche <input type="range" name="mouth" min="0" max="100" value="48" /></label>
+                <label>Nez <input type="range" name="nose" min="0" max="100" value="56" /></label>
+                <label>Mâchoire <input type="range" name="jaw" min="0" max="100" value="40" /></label>
+              </div>
+
+              <div class="grid two">
+                <label>
+                  Coiffure
+                  <select name="hairStyle">
+                    <option>Carré souple</option>
+                    <option>Queue-de-cheval</option>
+                    <option>Boucles libres</option>
+                    <option>Coupe courte</option>
+                  </select>
+                </label>
+                <label>
+                  Tenue
+                  <select name="outfit">
+                    <option>Casual chic</option>
+                    <option>Uniforme lycée</option>
+                    <option>Nocturne vampire</option>
+                    <option>Robe mystique</option>
+                    <option>Campagne douce</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="grid two">
+                <div>
+                  <h3>Choisis 3 caractères</h3>
+                  <div class="choice-grid" id="traitsGrid"></div>
+                </div>
+                <div>
+                  <h3>Choisis 1 aspiration</h3>
+                  <div class="choice-grid aspiration-grid" id="aspirationsGrid"></div>
+                </div>
+              </div>
+
+              <div class="grid two animal-panel hidden" id="animalPanel">
+                <div>
+                  <h3>Animal</h3>
+                  <label>
+                    Nom de l'animal
+                    <input type="text" name="animalName" value="Nox" />
+                  </label>
+                  <label>
+                    Race / type
+                    <select name="animalBreed">
+                      <option>Européen</option>
+                      <option>Persan</option>
+                      <option>Berger</option>
+                      <option>Labrador</option>
+                    </select>
+                  </label>
+                  <label>
+                    Vêtement animal
+                    <select name="animalOutfit">
+                      <option>Bandana</option>
+                      <option>Manteau chic</option>
+                      <option>Pull magique</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="animal-preview" id="animalPreview"></div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="primary-btn" id="finishCakBtn">Terminé</button>
+              </div>
+            </form>
+
+            <aside class="panel preview-panel">
+              <div class="panel-title-row">
+                <h3>Aperçu du Kims</h3>
+                <span class="tiny-pill" id="previewAge">Jeune adulte</span>
+              </div>
+              <div class="avatar-stage">
+                <div class="avatar-card">
+                  <div class="avatar-head">
+                    <span class="eye left"></span>
+                    <span class="eye right"></span>
+                    <span class="mouth"></span>
+                  </div>
+                  <div class="avatar-body"></div>
+                </div>
+              </div>
+              <div class="preview-copy">
+                <h4 id="previewName">Lina Darine</h4>
+                <p id="previewMeta">Femme · Casual chic · Carré souple</p>
+                <div class="summary-box">
+                  <strong>Caractères</strong>
+                  <p id="previewTraits">À choisir</p>
+                </div>
+                <div class="summary-box">
+                  <strong>Aspiration</strong>
+                  <p id="previewAspiration">À choisir</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-worlds">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Étape 2</p>
+              <h2>Choisis un monde</h2>
+            </div>
+            <button class="ghost-btn" data-nav="screen-cak">Retour au CAK</button>
+          </div>
+          <div class="world-grid" id="worldGrid"></div>
+          <div class="form-actions">
+            <button class="primary-btn" id="startSimulationBtn" disabled>Commencer la vie</button>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-simulation">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Étape 3</p>
+              <h2>Vie de ton Kims</h2>
+            </div>
+            <div class="button-row">
+              <button class="ghost-btn" id="saveGameBtn">Sauvegarder</button>
+              <button class="ghost-btn" data-nav="screen-worlds">Retour aux mondes</button>
+            </div>
+          </div>
+
+          <div class="simulation-layout">
+            <section class="panel live-panel">
+              <div class="panel-title-row">
+                <h3>Mode vie</h3>
+                <span class="tiny-pill" id="currentWorldPill">Aucun monde</span>
+              </div>
+              <div class="live-summary" id="liveSummary"></div>
+              <div class="stats-grid" id="needsGrid"></div>
+              <div class="job-panel">
+                <h4>Choisir un travail</h4>
+                <select id="jobSelect"></select>
+                <p id="jobDescription"></p>
+              </div>
+            </section>
+
+            <section class="panel build-panel">
+              <div class="panel-title-row">
+                <h3>Mode construction</h3>
+                <span class="tiny-pill">Prototype</span>
+              </div>
+              <div class="build-categories" id="buildCategories"></div>
+              <div class="lot-rules" id="lotRules"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
