@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kims — Prototype life sim</title>
+    <title>Kims — Prototype simulation</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -29,8 +29,8 @@
               <p class="eyebrow">Bienvenue dans Kims</p>
               <h2>Commence une nouvelle vie</h2>
               <p>
-                Crée ton Kims, choisis ses caractères, son aspiration, un animal si tu veux,
-                puis installe-toi dans l'un des mondes jouables.
+                Crée un foyer, personnalise plusieurs Kims, choisis un monde, un terrain,
+                puis lance une mini simulation de vie avec construction interactive.
               </p>
               <div class="menu-actions vertical">
                 <button class="primary-btn xl" id="newGameBtn">Nouvelle partie</button>
@@ -38,26 +38,10 @@
               </div>
             </div>
             <div class="menu-preview-grid">
-              <article class="mini-card">
-                <span>🧬</span>
-                <strong>CAK</strong>
-                <p>Visage, tenues, caractères, aspiration.</p>
-              </article>
-              <article class="mini-card">
-                <span>🌍</span>
-                <strong>4 mondes</strong>
-                <p>Ville, vampires, magie et campagne.</p>
-              </article>
-              <article class="mini-card">
-                <span>🐶</span>
-                <strong>Animaux</strong>
-                <p>Chat ou chien avec apparence dédiée.</p>
-              </article>
-              <article class="mini-card">
-                <span>🏗️</span>
-                <strong>Construction</strong>
-                <p>Aperçu des règles et objets par monde.</p>
-              </article>
+              <article class="mini-card"><span>👨‍👩‍👧</span><strong>Foyer</strong><p>Ajoute plusieurs Kims.</p></article>
+              <article class="mini-card"><span>👕</span><strong>Vêtements</strong><p>Catégories, palettes et variantes.</p></article>
+              <article class="mini-card"><span>🌍</span><strong>Mondes</strong><p>Ville, vampires, magie, campagne.</p></article>
+              <article class="mini-card"><span>🏗️</span><strong>Construction</strong><p>Grille interactive et outils de base.</p></article>
             </div>
           </div>
         </section>
@@ -65,8 +49,8 @@
         <section class="screen" id="screen-cak">
           <div class="section-heading compact">
             <div>
-              <p class="eyebrow">Créer un Kims</p>
-              <h2>Composer ton foyer</h2>
+              <p class="eyebrow">Créer un foyer</p>
+              <h2>Créer un Kims (CAK)</h2>
             </div>
             <div class="button-row">
               <button class="ghost-btn" id="randomizeBtn">Aléatoire</button>
@@ -76,20 +60,23 @@
 
           <div class="cak-shell panel">
             <aside class="cak-left">
-              <div class="identity-card glass-panel">
+              <div class="glass-panel household-panel">
+                <div class="panel-title-row">
+                  <h3>Foyer</h3>
+                  <button class="ghost-btn small" id="addHouseholdBtn" type="button">+ Ajouter</button>
+                </div>
+                <div class="household-list" id="householdList"></div>
+                <p class="muted small-copy">Prototype limité à 4 Kims dans le foyer.</p>
+              </div>
+
+              <div class="glass-panel identity-card">
                 <div class="identity-top-row">
                   <h3>Hello, mon nom est...</h3>
                   <span class="tiny-pill" id="previewAge">Jeune adulte</span>
                 </div>
                 <div class="grid two compact-grid">
-                  <label>
-                    Prénom
-                    <input type="text" name="firstName" form="cakForm" value="Lina" />
-                  </label>
-                  <label>
-                    Nom
-                    <input type="text" name="lastName" form="cakForm" value="Darine" />
-                  </label>
+                  <label>Prénom<input type="text" name="firstName" form="cakForm" value="Lina" /></label>
+                  <label>Nom<input type="text" name="lastName" form="cakForm" value="Darine" /></label>
                 </div>
                 <div class="grid three compact-grid">
                   <label>
@@ -120,23 +107,18 @@
                 </div>
               </div>
 
-              <div class="hex-flow glass-panel">
+              <div class="glass-panel hex-flow">
                 <h3>Personnalité</h3>
-                <div class="hex-row" id="traitsSummaryHexes">
-                  <div class="hex-placeholder active">1</div>
-                  <div class="hex-placeholder">2</div>
-                  <div class="hex-placeholder">3</div>
-                  <div class="hex-placeholder aspiration">★</div>
-                </div>
+                <div class="hex-row" id="traitsSummaryHexes"></div>
                 <p class="muted">Choisis exactement 3 caractères et 1 aspiration.</p>
               </div>
 
-              <div class="selection-panel glass-panel">
+              <div class="glass-panel selection-panel">
                 <h3>Caractères</h3>
                 <div class="choice-grid" id="traitsGrid"></div>
               </div>
 
-              <div class="selection-panel glass-panel">
+              <div class="glass-panel selection-panel">
                 <h3>Aspiration</h3>
                 <div class="choice-grid aspiration-grid" id="aspirationsGrid"></div>
               </div>
@@ -146,14 +128,14 @@
               <div class="sim-stage panel-soft">
                 <div class="stage-gradient"></div>
                 <div class="body-sliders glass-panel slim-panel">
-                  <label>
-                    Silhouette
-                    <input type="range" name="body" form="cakForm" min="0" max="100" value="54" />
-                  </label>
-                  <label>
-                    Forme
-                    <input type="range" name="fitness" form="cakForm" min="0" max="100" value="46" />
-                  </label>
+                  <label>Silhouette<input type="range" name="body" form="cakForm" min="0" max="100" value="54" /></label>
+                  <label>Forme<input type="range" name="fitness" form="cakForm" min="0" max="100" value="46" /></label>
+                </div>
+                <div class="face-sliders glass-panel slim-panel">
+                  <label>Yeux<input type="range" name="eyes" form="cakForm" min="0" max="100" value="62" /></label>
+                  <label>Bouche<input type="range" name="mouth" form="cakForm" min="0" max="100" value="48" /></label>
+                  <label>Nez<input type="range" name="nose" form="cakForm" min="0" max="100" value="56" /></label>
+                  <label>Mâchoire<input type="range" name="jaw" form="cakForm" min="0" max="100" value="40" /></label>
                 </div>
 
                 <div class="avatar-stage advanced">
@@ -173,10 +155,10 @@
                 </div>
 
                 <div class="sim-footer-bar glass-panel slim-panel">
-                  <button class="footer-tool active">🎲</button>
-                  <button class="footer-tool">🧍</button>
+                  <button class="footer-tool active">🧍</button>
                   <button class="footer-tool">👕</button>
                   <button class="footer-tool">😊</button>
+                  <button class="footer-tool">🐾</button>
                 </div>
               </div>
             </section>
@@ -185,35 +167,13 @@
               <form class="glass-panel wardrobe-panel" id="cakForm">
                 <div class="wardrobe-header">
                   <h3>Style & détails</h3>
-                  <span class="tiny-pill" id="previewMeta">Femme · Casual chic</span>
+                  <span class="tiny-pill" id="previewMeta">Femme · Quotidien</span>
                 </div>
 
-                <div class="category-pills">
-                  <button class="category-pill active" type="button">Corps</button>
-                  <button class="category-pill" type="button">Visage</button>
-                  <button class="category-pill" type="button">Cheveux</button>
-                  <button class="category-pill" type="button">Habits</button>
-                  <button class="category-pill" type="button">Animal</button>
-                </div>
-
-                <div class="grid two compact-grid">
-                  <label>
-                    Yeux
-                    <input type="range" name="eyes" min="0" max="100" value="62" />
-                  </label>
-                  <label>
-                    Bouche
-                    <input type="range" name="mouth" min="0" max="100" value="48" />
-                  </label>
-                  <label>
-                    Nez
-                    <input type="range" name="nose" min="0" max="100" value="56" />
-                  </label>
-                  <label>
-                    Mâchoire
-                    <input type="range" name="jaw" min="0" max="100" value="40" />
-                  </label>
-                </div>
+                <div class="category-pills" id="wardrobeCategoryTabs"></div>
+                <div class="sub-category-pills" id="wardrobeSubcategoryTabs"></div>
+                <div class="color-palette" id="colorPalette"></div>
+                <div class="wardrobe-gallery" id="outfitGallery"></div>
 
                 <div class="grid two compact-grid">
                   <label>
@@ -238,19 +198,6 @@
                 </div>
 
                 <label>
-                  Tenue
-                  <select name="outfit">
-                    <option>Casual chic</option>
-                    <option>Uniforme lycée</option>
-                    <option>Nocturne vampire</option>
-                    <option>Robe mystique</option>
-                    <option>Campagne douce</option>
-                  </select>
-                </label>
-
-                <div class="wardrobe-gallery" id="outfitGallery"></div>
-
-                <label>
                   Animal compagnon
                   <select name="animalType">
                     <option value="none" selected>Aucun</option>
@@ -261,10 +208,7 @@
 
                 <div class="animal-panel hidden" id="animalPanel">
                   <div class="grid two compact-grid">
-                    <label>
-                      Nom
-                      <input type="text" name="animalName" value="Nox" />
-                    </label>
+                    <label>Nom<input type="text" name="animalName" value="Nox" /></label>
                     <label>
                       Race
                       <select name="animalBreed">
@@ -287,6 +231,7 @@
                 </div>
 
                 <div class="form-actions sticky-actions">
+                  <button type="button" class="primary-btn" id="saveCurrentKimBtn">Enregistrer ce Kims</button>
                   <button type="button" class="primary-btn" id="finishCakBtn">Terminé</button>
                 </div>
               </form>
@@ -298,7 +243,7 @@
           <div class="section-heading compact">
             <div>
               <p class="eyebrow">Choix du monde</p>
-              <h2>Où va vivre ton Kims ?</h2>
+              <h2>Monde, quartier et terrain</h2>
             </div>
             <button class="ghost-btn" data-nav="screen-cak">Retour au CAK</button>
           </div>
@@ -306,13 +251,11 @@
           <div class="world-selector panel">
             <div class="worlds-toolbar">
               <span class="tiny-pill">4 mondes disponibles</span>
-              <p class="muted">Chaque monde possède son ambiance, ses règles de construction et son gameplay.</p>
+              <p class="muted">Choisis un monde puis un terrain pour commencer ta partie.</p>
             </div>
             <div class="world-orbit" id="worldGrid"></div>
-            <div class="world-detail glass-panel" id="worldDetail">
-              <h3>Sélectionne un monde</h3>
-              <p class="muted">Choisis un cercle pour voir les détails du monde.</p>
-            </div>
+            <div class="world-detail glass-panel" id="worldDetail"></div>
+            <div class="lot-grid" id="lotGrid"></div>
             <div class="form-actions centered">
               <button class="primary-btn" id="startSimulationBtn" disabled>Commencer la vie</button>
             </div>
@@ -322,8 +265,8 @@
         <section class="screen" id="screen-simulation">
           <div class="section-heading compact">
             <div>
-              <p class="eyebrow">Vie & construction</p>
-              <h2>Premier aperçu de ton foyer</h2>
+              <p class="eyebrow">Mode vie</p>
+              <h2>Simulation du foyer</h2>
             </div>
             <div class="button-row">
               <button class="ghost-btn" id="saveGameBtn">Sauvegarder</button>
@@ -331,14 +274,21 @@
             </div>
           </div>
 
-          <div class="simulation-layout">
+          <div class="simulation-layout wide">
             <section class="panel live-panel">
               <div class="panel-title-row">
-                <h3>Mode vie</h3>
+                <h3>Vie du foyer</h3>
                 <span class="tiny-pill" id="currentWorldPill">Aucun monde</span>
               </div>
               <div class="live-summary" id="liveSummary"></div>
-              <div class="stats-grid" id="needsGrid"></div>
+              <div class="sim-toolbar">
+                <button class="ghost-btn small" id="tickTimeBtn">+1 heure</button>
+                <button class="ghost-btn small action-btn" data-action="eat">Manger</button>
+                <button class="ghost-btn small action-btn" data-action="sleep">Dormir</button>
+                <button class="ghost-btn small action-btn" data-action="fun">Se divertir</button>
+                <button class="ghost-btn small action-btn" data-action="social">Socialiser</button>
+              </div>
+              <div class="household-live-list" id="householdLiveList"></div>
               <div class="job-panel">
                 <h4>Choisir un travail</h4>
                 <select id="jobSelect"></select>
@@ -348,9 +298,16 @@
 
             <section class="panel build-panel">
               <div class="panel-title-row">
-                <h3>Mode construction</h3>
-                <span class="tiny-pill">Prototype</span>
+                <h3>Construction</h3>
+                <span class="tiny-pill" id="currentLotPill">Aucun terrain</span>
               </div>
+              <div class="build-toolbar">
+                <button class="ghost-btn small build-tool active" data-build="floor">Sol</button>
+                <button class="ghost-btn small build-tool" data-build="wall">Mur</button>
+                <button class="ghost-btn small build-tool" data-build="door">Porte</button>
+                <button class="ghost-btn small build-tool" data-build="erase">Effacer</button>
+              </div>
+              <div class="build-grid" id="buildGrid"></div>
               <div class="build-categories" id="buildCategories"></div>
               <div class="lot-rules" id="lotRules"></div>
             </section>
