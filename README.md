@@ -5,8 +5,8 @@ Prototype web statique d'un jeu de simulation de vie original inspiré du genre 
 ## Contenu
 
 - `index.html` : interface principale du prototype.
-- `styles.css` : style visuel du menu, du CAK, des mondes et du mode vie/construction.
-- `app.js` : logique du prototype, navigation d'écran, sélection des traits/aspirations, mondes et sauvegarde locale.
+- `styles.css` : style visuel du menu, du CAK inspiré du genre life-sim, des mondes et du mode vie/construction.
+- `app.js` : logique du prototype, navigation d'écran, personnalité, mondes, tenue, animal compagnon et sauvegarde locale.
 - `docs/original-life-sim-design.md` : document de design détaillé conservé comme référence.
 
 ## Fonctionnalités du prototype
@@ -37,4 +37,3 @@ python3 -m http.server 8000
 ```
 
 Puis ouvrir `http://localhost:8000`.
-app.js
