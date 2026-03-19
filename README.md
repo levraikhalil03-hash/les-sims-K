@@ -12,7 +12,7 @@ Prototype web statique d'un jeu de simulation de vie original inspiré du genre 
 ## Fonctionnalités du prototype
 
 - Menu principal avec **Nouvelle partie** et **Charger une partie**.
-- Écran **Créer un Kims (CAK)** avec :
+- Écran **Créer un Kims (CAK)** avec foyer multi-Kims et :
   - prénom / nom ;
   - âge ;
   - sexe ;
@@ -22,8 +22,8 @@ Prototype web statique d'un jeu de simulation de vie original inspiré du genre 
   - **3 caractères** avec icônes ;
   - **1 aspiration** avec icône ;
   - ajout d'un **chat** ou d'un **chien** personnalisable.
-- Sélection de **4 mondes** : ville, vampires, magie, campagne.
-- Écran final avec aperçu **mode vie** + **mode construction**.
+- Sélection de **4 mondes** : ville, vampires, magie, campagne, chacun avec plusieurs terrains.
+- Écran final avec **simulation de vie** du foyer + **construction interactive sur grille**.
 - Sauvegarde locale via `localStorage`.
 
 ## Lancer le prototype
